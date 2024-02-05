@@ -1,17 +1,66 @@
-<!DOCTYPE html>
-<html>
-    <head>
-        <meta charset="UTF-8">
-        <title>{% block title %}Welcome!{% endblock %}</title>
-        <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 128 128%22><text y=%221.2em%22 font-size=%2296%22>⚫️</text><text y=%221.3em%22 x=%220.2em%22 font-size=%2276%22 fill=%22%23fff%22>sf</text></svg>">
-        {% block stylesheets %}
-        {% endblock %}
+<!doctype html>
+<html lang="fr-FR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>{% block title %}Bucket-List{% endblock %}</title>
 
-        {% block javascripts %}
-{% block importmap %}{{ importmap('app') }}{% endblock %}
-        {% endblock %}
-    </head>
-    <body>
-        {% block body %}{% endblock %}
-    </body>
+    {# notre google font #}
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Asul:wght@400;700&display=swap">
+
+    {# notre css #}
+    <link rel="stylesheet" href="{{ asset('css/app.css') }}">
+
+    {# le favicon #}
+    <link rel="icon" href="{{ asset('img/favicon.png') }}">	
+</head>
+<body>
+    {# entête du site #}
+    <header>
+        <div class="container">
+            <h1 class="header-logo">
+                <a href="{{ path('app_main_index') }}" title="Go back to homepage" id="logo">
+                    <img src="{{ asset('img/logo.svg') }}" alt="Bucket-List Logo">Bucket-List
+                </a>
+            </h1>
+            <nav class="header-nav">
+                {# Amélioration conseillée : <ul> <li>  #}
+                <a href="{{ path('app_main_index') }}" title="Go back to homepage">Home</a>&nbsp;&nbsp;
+{#                <a href="{{ path('app_main_test') }}" title="Main test">Test</a>&nbsp;#}
+                <a href="{{ path('app_main_about_us') }}" title="About us">About us</a>
+
+                {%  if app.user %}
+                    <a href="{{ path('app_wish_index') }}" title="All things to do">All wishes</a>
+                    <a href="{{ path('app_wish_new') }}" title="Create a new wish">New wish</a>
+                    <a href="{{ path('app_logout') }}" title="Logout">Logout</a>
+                    {% if 'ROLE_ADMIN' in app.user.roles %}
+                        <a href="{{ path('app_admin_index') }}" title="Admin">Admin</a>
+                    {% endif %}
+                {% else %}
+                    <a href="{{ path('app_login') }}" title="Login">Login</a>
+                {% endif %}
+            </nav>
+        </div>
+    </header>
+
+     {# contenu principal de chaque page #}
+    <main>
+        <div class="container">
+            {% block body %}{% endblock %}
+        </div>
+    </main>
+
+    {# pied-de-page du site #}
+    <footer>
+        <div class="container">
+            &copy; Bucket-List {{ "now"|date("Y") }}
+        </div>
+    </footer>
+
+{#    {% block javascripts %}#}
+{#        {% block importmap %}{{ importmap('app') }}{% endblock %}#}
+{#    {% endblock %}#}
+</body>
 </html>
