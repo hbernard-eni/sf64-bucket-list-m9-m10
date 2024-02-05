@@ -1,0 +1,58 @@
+{% extends 'base.html.twig' %}
+
+{% import 'macros/macros.html.twig' as mcr %}
+
+{% block body %}
+
+    <!-- Un commentaire HTML -->
+    {# Un commentaire Twig #}
+
+    <h2>About Us</h2>
+
+    <h3>Affichage d'un tableau simple :</h3>
+
+    <ul>
+        {% for f in aFruits %}
+            <li>{{ f }}</li>
+            <li>{{ loop.index }} : {{ f }}</li>
+        {% endfor %}
+    </ul>
+
+
+    <h3>Affichage d'un tableau multidimensionnel :</h3>
+
+    <ul>
+        {% for a in aPersons %}
+            <li>{{ a.nom }} {{ a.prenom }} </li>
+        {% endfor %}
+    </ul>
+
+    <ul>
+        {% for a in aPersons %}
+            {% for key, p in a %}
+                <li>{{ key }} : {{ p }}</li>
+            {% endfor %}
+        {% endfor %}
+    </ul>
+
+    <h3>Affichage d'une date :</h3>
+
+{#    <p>- Date formatée : {{ oDate|date('d/m/Y h:i:s') }}</p>#}
+    <p>- Date formatée : {{ "now"|date('d/m/Y h:i:s') }}</p>
+
+    <h3>XSS</h3>
+    {{ sJs }}
+
+    <h3>Utilisation des macros :</h3>
+    <div>{{ mcr.image("img/captcha.jpg", "Captcha", "Texte alternatif") }}</div>
+
+    <div>{{ mcr.image("img/dave_loper.jpg", "Dave Loper", "Photo de Dave Loper") }}</div>
+
+    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus non commodo eros. Curabitur ac congue ante. Mauris non sodales nunc. Quisque congue varius metus, placerat tincidunt justo. Phasellus tristique libero et felis ultricies, sed ullamcorper sem imperdiet. Etiam fringilla nisi quis nibh iaculis, sed cursus sapien varius. Nunc sodales, orci ut imperdiet faucibus, nulla dui dignissim est, eu consectetur orci sem feugiat nunc. In aliquam fermentum velit, a tempus erat consequat vel. Phasellus volutpat convallis volutpat. Integer commodo ex ac purus sodales blandit.</p>
+
+    <p>Morbi sed tristique mi. Vivamus congue suscipit semper. In hac habitasse platea dictumst. Nullam dui arcu, rhoncus in efficitur non, euismod sed sapien. Quisque convallis eleifend justo ac elementum. Sed efficitur, nibh vel dapibus aliquam, velit lorem porta magna, vitae pharetra est est a est. Donec tempor odio eu eros fringilla commodo. Pellentesque semper nisi ac sem volutpat, at vehicula lacus pretium. Interdum et malesuada fames ac ante ipsum primis in faucibus. Sed semper ex nec sapien malesuada, ut luctus orci feugiat. In gravida urna eget metus condimentum suscipit. In fringilla bibendum rutrum. Pellentesque pharetra velit eget diam volutpat fringilla.</p>
+
+    <p>Maecenas leo mauris, mollis in aliquet quis, fermentum a lorem. Nam ac justo vel felis fermentum dapibus at id leo. Donec ornare commodo pulvinar. Praesent tincidunt, lectus et bibendum aliquet, justo elit dictum quam, id aliquet metus mauris id ipsum. Sed eget aliquam massa. Ut ultricies imperdiet enim quis lacinia. Nullam quis mauris commodo, imperdiet quam eu, malesuada ligula. Duis vitae iaculis risus. Morbi eget maximus mi, eget fringilla augue. Proin venenatis eros at leo accumsan sollicitudin. Duis aliquet, elit eu dignissim ullamcorper, ante erat hendrerit lectus, accumsan imperdiet est ipsum auctor tortor. Curabitur eget lacus ut velit aliquet lobortis eget quis neque. Cras eget volutpat est. Maecenas libero eros, volutpat cursus diam in, faucibus varius nibh.</p>
+    {% endblock %}
+
+{% block title %}About Us | {{ parent() }}{% endblock %}

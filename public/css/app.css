@@ -1,0 +1,171 @@
+body {
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    font-family: 'Asul', sans-serif;
+    background-color: aliceblue;
+}
+
+.container {
+    max-width: 800px;
+    margin: auto;
+}
+
+header {
+    background-color: #A5A58D;
+    padding: 1rem 0;
+}
+
+header h1 {
+    margin: 0 0 10px 0;
+}
+
+/* CSS de Campus, désactivé car ne s'applique pas, cf. modifs perso qui suivent
+header nav a {
+    text-decoration: none;
+    color: inherit;
+}
+
+header-nav a:hover {
+    text-decoration: underline;
+}
+*/
+/* modif perso, car celles de Campus ne s'appliquent pas  */
+.header-nav a {
+    text-decoration: none;
+    color: inherit;
+}
+
+.header-nav a:hover {
+    text-decoration: underline;
+}
+
+/* du coup le lien nom du site est impacté (n'est plus noir)
+* correction mettre l'id logo dans le template de base
+*/
+#logo {
+    color: #000;
+    text-decoration: none;
+}
+/* -- fin modifs perso */
+
+
+.header-logo {
+    font-size: 3rem;
+    font-weight: normal;
+}
+
+.header-logo img {
+    max-width: 42px;
+    margin-right: 5px;
+}
+
+.header-nav {
+    display: flex;
+}
+
+main {
+    flex: 1;
+    padding: 1rem 0;
+    background-color: #FFF1E6;
+}
+
+footer {
+    padding: 2rem 0;
+    text-align: center;
+    background-color: #EDDCD2;
+}
+
+/* Ajout fin corrigé TP du module 4 */
+.container {
+    max-width: 800px;
+    margin: auto;
+    padding: 0 10px;
+}
+
+.header-nav a {
+   margin-right: 2rem;
+}
+
+main h2 {
+   margin-top: 0;
+}
+
+/* Ajouts perso */
+table, tr, th, td  {
+    border: 1px solid #000;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 1rem;
+}
+
+th {
+    background-color: #000;
+    color: #FFF;
+    text-align: center;
+}
+
+.text-center {
+    text-align: center;
+}
+
+/* -- fin ajout perso */
+
+/* Ajout fin corrigé TP du module 5 */
+main a {
+   color: #8c6956;
+}
+
+.wishes-list article {
+   margin-bottom: 0.5rem;
+}
+
+.wish-credit {
+   font-size: 0.9rem;
+   font-style: italic;
+}
+
+/* Ajout fin corrigé TP du module 6 */
+.alert {
+	font-size: 1.5rem;
+	font-weight: bold;
+	padding: 1rem;
+	margin: 1rem;
+	border-radius: 5px;
+	text-align: center;
+}
+
+.alert-success { background-color: #a2a232;}
+
+.alert-error { background-color: #d4550e; }
+
+/* formulaires */
+label {
+	display: block;
+}
+
+input, textarea {
+	box-sizing: border-box;
+	width: 50%;
+	margin-bottom: 1rem;
+}
+
+button {
+	padding: 0.5rem 0.7rem;
+	font-family: inherit;
+}
+
+/* Ajout TP 7 */
+input, textarea, select {
+    box-sizing: border-box;
+    width: 50%;
+    padding: 0.2rem 0.5rem;
+    margin-bottom: 1rem;
+}
+
+
+
