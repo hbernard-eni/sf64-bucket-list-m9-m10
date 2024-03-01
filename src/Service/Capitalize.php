@@ -2,8 +2,16 @@
 
 namespace App\Service;
 	
+use App\Util\Censurator;
+
 class Capitalize
-{	    	
+{
+    private Censurator $censurator;
+
+    public function __construct(Censurator $censurator)  {
+        $this->censurator = $censurator;
+    }
+
     public function toUpper(string $s): string
     {
         //  Ne gère pas les majuscules avec les accents
